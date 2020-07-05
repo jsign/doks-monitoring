@@ -12,7 +12,7 @@ spec:
   serviceName: "$APP_INSTANCE_NAME-alertmanager-operated"
   # To scale the number of Alertmanager replicas, you must add `—cluster.peer` addresses 
   # for any additional Alertmanager Pods in the `args` section of the `containers` spec. 
-  replicas: 2
+  replicas: 1
   podManagementPolicy: OrderedReady
   updateStrategy:
     type: RollingUpdate
@@ -99,7 +99,7 @@ spec:
   - metadata:
       name: $APP_INSTANCE_NAME-alertmanager-data
     spec:
-      storageClassName: do-block-storage
+      storageClassName: default
       accessModes:
         - ReadWriteOnce
       resources:
